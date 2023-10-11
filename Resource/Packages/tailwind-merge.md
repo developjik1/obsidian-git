@@ -30,7 +30,6 @@ twMerge('px-2 py-1 bg-red hover:bg-dark-red', 'p-3 bg-[#B91C1C]')
 -  캐시 사이즈를 만약 수정하고 싶다면 `extendTailwindMerge`를 사용하면 됩니다.
 - 캐시힛 없이 twMerge 호출이 빠르게 유지될 수 있도록 비싼 계산은 upfront로 수행한다.
 
-
 >  tailwind-merge로 충분한 클래스에 **@apply 지시문을 사용**하는 것이 추천되지 않습니다.
 
 > 충돌을 해결하지 않으면서 조건부로 join을 하는 것을 도와주는 `twJoin`도 있습니다.
@@ -43,5 +42,6 @@ twJoin(
 )
 ```
 
+   
 >[tailwind-merge npm](https://www.npmjs.com/package/tailwind-merge)   
 >[tailwind-merge git](https://github.com/dcastil/tailwind-merge)

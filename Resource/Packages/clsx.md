@@ -77,3 +77,9 @@ import { twMerge } from "tailwind-merge"
 }
 
 ```
+
+>[clsx npm](https://www.npmjs.com/package/clsx)   
+>[clsx git](https://github.com/lukeed/clsx)
+
+> [clsx와 유사한 classnames npm](https://www.npmjs.com/package/classnames)
+> [clsx와 유사한 classnames git](https://github.com/JedWatson/classnames)
