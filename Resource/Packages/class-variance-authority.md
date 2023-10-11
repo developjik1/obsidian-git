@@ -20,6 +20,7 @@ pnpm i class-variance-authority
 > [cva tailwind intellisense setting](https://cva.style/docs/getting-started/installation)
 
 ## class-variance-authority example
+### Creating Variants
 ```javascript
 import { cva } from "class-variance-authority";  
   
@@ -67,7 +68,5 @@ button({ intent: "secondary", size: "small" });
 
 ```
 
-## clsx feature
-- 조건부 렌더를 작성하기 쉬워진다.
-
-## clsx typescript
+>[class-variance-authority npm](https://www.npmjs.com/package/clsx)   
+>[class-variance-authority git](https://cva.style/docs/getting-started/variants)
