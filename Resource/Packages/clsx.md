@@ -12,7 +12,7 @@ yarn add --dev clsx
 ```
 
 ```shell
-pnpm add -D clsx
+pnpm i -D clsx
 ```
 
 ## clsx example

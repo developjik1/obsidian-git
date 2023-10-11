@@ -12,7 +12,7 @@ yarn add tailwind-merge
 ```
 
 ```shell
-pnpm add tailwind-merge
+pnpm i tailwind-merge
 ```
 
 ## tailwind-merge example 
