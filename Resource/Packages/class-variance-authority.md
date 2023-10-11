@@ -68,5 +68,9 @@ button({ intent: "secondary", size: "small" });
 
 ```
 
+`cva`의 `첫번째` 인자에는 모든 경우에 `공통`으로 들어가게 될 `css`를 입력하게 됩니다.
+
+그리고 `두번째 인자`에는 객체를 넣어줍니다.
+
 >[class-variance-authority npm](https://www.npmjs.com/package/class-variance-authority)   
 >[class-variance-authority homepage](https://cva.style/docs/getting-started/variants)
