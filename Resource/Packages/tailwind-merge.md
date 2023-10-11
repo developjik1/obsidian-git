@@ -1,6 +1,4 @@
-- [[#tailwind-merge?]]
-- [[#tailwind-merge install|tailwind-merge install]]
-- [[#tailwind-merge example|tailwind-merge example]]
+
 ## tailwind-merge?
 Utility function to efficiently merge [Tailwind CSS](https://tailwindcss.com/) classes in JS without style conflicts.
 
