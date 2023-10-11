@@ -14,17 +14,5 @@ yarn add tailwind-merge
 pnpm i tailwind-merge
 ```
 
-```typescript
-
-import { type ClassValue, clsx } from "clsx"  
-import { twMerge } from "tailwind-merge"  
-
- export function cn(...inputs: ClassValue[]) {  
-  return twMerge(clsx(inputs))  
-}
-
-```
-
-
 >[tailwind-merge npm](https://www.npmjs.com/package/tailwind-merge)
 >[tailwind-merge git](https://github.com/dcastil/tailwind-merge)
