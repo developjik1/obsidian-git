@@ -1,6 +1,9 @@
-## tailwind-merge 란?
-- Utility function to efficiently merge [Tailwind CSS](https://tailwindcss.com/) classes in JS without style conflicts.
----
+- [[#tailwind-merge?]]
+- [[#tailwind-merge install|tailwind-merge install]]
+- [[#tailwind-merge example|tailwind-merge example]]
+## tailwind-merge?
+Utility function to efficiently merge [Tailwind CSS](https://tailwindcss.com/) classes in JS without style conflicts.
+
 ## tailwind-merge install
 ```shell
 npm i tailwind-merge
@@ -13,8 +16,8 @@ yarn add tailwind-merge
 ```shell
 pnpm i tailwind-merge
 ```
----
-## #tailwind-merge example 
+
+## tailwind-merge example 
 ```typescript
 import { twMerge } from 'tailwind-merge'
 
