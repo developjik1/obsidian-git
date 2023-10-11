@@ -68,5 +68,5 @@ button({ intent: "secondary", size: "small" });
 
 ```
 
->[class-variance-authority npm](https://www.npmjs.com/package/clsx)   
->[class-variance-authority git](https://cva.style/docs/getting-started/variants)
+>[class-variance-authority npm](https://www.npmjs.com/package/class-variance-authority)   
+>[class-variance-authority homepage](https://cva.style/docs/getting-started/variants)
