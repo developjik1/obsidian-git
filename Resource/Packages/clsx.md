@@ -45,3 +45,35 @@ clsx(['foo'], ['', 0, false, 'bar'], [['baz', [['hello'], 'there']]]);
 clsx('foo', [1 && 'bar', { baz:false, bat:null }, ['hello', ['world']]], 'cya');
 //=> 'foo bar hello world cya'
 ```
+
+## clsx feature
+- 조건부 렌더를 작성하기 쉬워진다.
+
+## clsx typescript
+
+```typescript
+import { ClassValue, clsx } from 'clsx';
+```
+
+이 `ClassValue`에 대한 정의는 다음과 같습니다.
+
+```typescript
+export type ClassValue = ClassArray | ClassDictionary | string | number | null | boolean | undefined;
+export type ClassDictionary = Record<string, any>;
+export type ClassArray = ClassValue[];
+
+export declare function clsx(...inputs: ClassValue[]): string;
+export default clsx;
+```
+
+이를 활용한 `tailwind util` 함수는 다음과 같습니다.
+```typescript
+
+import { type ClassValue, clsx } from "clsx"  
+import { twMerge } from "tailwind-merge"  
+
+ export function cn(...inputs: ClassValue[]) {  
+  return twMerge(clsx(inputs))  
+}
+
+```
