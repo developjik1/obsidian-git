@@ -1,12 +1,13 @@
 ## Polymorphism Component 란?
-**Polymorphism**은 한국어로 다형성이라고 부르는데, `여러 개의 형태를 가진다`라는 의미이다. 
+![[Pasted image 20231012112351.png]]
 
-즉, Polymorphism Component 란 `다양한 형태의` 등으로 나타낼수 있는 Component 이다.
+**Polymorphism**은 한국어로 `다형성`이라고 부르는데, `여러 개의 형태를 가진다`라는 의미이다. 
 
-그럼 Polymorphic한 UI 컴포넌트는 `다양한 형태의 UI 컴포넌트`라고 바꿔 말할 수 있을 것이다. 필자는 이 말이 다음과 같은 내용을 담고 있다고 생각한다.
+`Polymorphism Component` 란 `다양한 형태의 UI를 나타낼수있는 컴포넌트` 이다.
 
-- 다양한 Semantic을 표현할 수 있는 UI 컴포넌트
-- 다양한 속성을 가질 수 있는 UI 컴포넌트
-- 다양한 스타일을 가질 수 있는 UI 컴포넌트
+즉, **무엇이든지 될 수 있는 컴포넌트** 다.
 
-좀 더 풀어서 설명하자면 웹 프론트엔드에서의 Polymorphic 컴포넌트는 코드에 따라 어떠한 요소(Element)도 될 수 있고 그에 따른 속성(Attribute)도 사용할 수 있다. 즉, 상황에 맞는 Semantic을 사용할 수 있고 앵커 태그처럼 특수한 용도로 사용되는 컴포넌트가 될 수도 있다. 결국 **無의 형태**에서 **무엇이든지 될 수 있는 컴포넌트**가 되는 것이 Polymorphic 컴포넌트고 가장 추상화된 형태의 컴포넌트라고 볼 수 있다.
+`Polymorphism Component` 는 `가장 추상화된 형태의 Component` 라 할 수 있다.
+
+
+MUI or  [Box](https://mui.com/material-ui/react-box/) 컴포넌트나 Mantine의 [Box](https://mantine.dev/core/box/) 컴포넌트를 예시로 들 수 있다. 두 UI 라이브러리는 Box라는 Polymorphic한 컴포넌트를 이용하여 재사용성을 높이고 다양한 컴포넌트를 확장성 있게 구현하고 있다. 굉장히 유용한 컴포넌트기 때문에 필자가 재직 중인 회사에서 만들고 사용하는 [디자인 시스템](https://github.com/cobaltinc/co-design)에도 View 컴포넌트를 구현하여 비슷하게 사용하고 있다.
