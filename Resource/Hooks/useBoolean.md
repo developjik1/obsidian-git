@@ -1,5 +1,6 @@
 ---
 tags: hook
+sticker: emoji//1f49b
 ---
 ## Hook
 
