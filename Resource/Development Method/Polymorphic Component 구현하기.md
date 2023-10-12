@@ -69,33 +69,55 @@ type AsProp<T extends React.ElementType> = {
 export type PolymorphicRef<T extends React.ElementType> =
   React.ComponentPropsWithRef<T>["ref"];
 
-
 export type PolymorphicComponentProps<
   T extends React.ElementType,
   Props = {}
 > = AsProp<T> & React.ComponentPropsWithoutRef<T> & Props & {
   ref?: PolymorphicRef<T>;
 };
+```
 
 
-type BoxProps<T extends React.ElementType> = {
-  as?: T;
-} & React.ComponentPropsWithoutRef<T>;
+```tsx
+export type BoxProps<T extends React.ElementType> = PolymorphicComponentProps<T>;
 
 type BoxComponent = <T extends React.ElementType = "div">(
-  props: BoxProps<T> & {
-    ref?: React.ComponentPropsWithRef<T>["ref"];
-  }
+  props: BoxProps<T>
 ) => React.ReactElement | null;
 
-export const View: BoxComponent = forwardRef(
+export const Box: BoxComponent = forwardRef(
   <T extends React.ElementType = "div">(
-    { as, ...props }: ViewProps<T>,
-    ref: React.ComponentPropsWithRef<T>["ref"]
+    { as, ...props }: BoxP<T>,
+    ref: PolymorphicRef<T>["ref"]
   ) => {
-    const Element = as || "div";
-    
-    return <Element ref={ref} {...props} />;
+    const Element = as || "span";
+    // size와 color를 style로 적용
+    return <Element ref={ref} {...props} style={{ fontSize: size, color }} />;
+  }
+);
+```
+
+```tsx
+type _TextProps = {
+  size: number;
+  color: string;
+};
+
+export type TextProps<T extends React.ElementType> = 
+  PolymorphicComponentProps<T, _TextProps>;
+
+type TextComponent = <T extends React.ElementType = "span">(
+  props: TextProps<T>
+) => React.ReactElement | null;
+
+export const Text: TextComponent = forwardRef(
+  <T extends React.ElementType = "span">(
+    { as, size, color, ...props }: TextProps<T>,
+    ref: PolymorphicRef<T>["ref"]
+  ) => {
+    const Element = as || "span";
+    // size와 color를 style로 적용
+    return <Element ref={ref} {...props} style={{ fontSize: size, color }} />;
   }
 );
 ```
