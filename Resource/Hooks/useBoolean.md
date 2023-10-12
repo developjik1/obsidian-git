@@ -23,7 +23,7 @@ export default useBoolean;
 
 ```ts
 const Component = () => {  
-  const [open, toggle] = useToggle()  
+  const [open, toggle] = useBoolean()  
   
   return (  
     <>  
