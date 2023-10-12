@@ -5,25 +5,15 @@ sticker: emoji//1fa9d
 ## Hook
 
 ```ts
-import { Dispatch, SetStateAction, useCallback, useState } from 'react'  
+import { Reducer, useReducer } from 'react';  
   
-interface UseBooleanOutput {  
-  value: boolean  
-  setValue: Dispatch<SetStateAction<boolean>>  
-  setTrue: () => void  
-  setFalse: () => void  
-  toggle: () => void  
-}  
+const reducer = (state: boolean, nextValue?: boolean) =>typeof nextValue === "boolean" ? nextValue : !state;  
   
-export const useBoolean = (defaultValue?: boolean): UseBooleanOutput => {  
-  const [value, setValue] = useState(!!defaultValue)  
+const useBoolean = (initialValue?: boolean): [boolean, (nextValue?: boolean) => void] => {  
+  return useReducer<Reducer<boolean, boolean| undefined>>(reducer, !! initialValue);  
+};  
   
-  const setTrue = useCallback(() => setValue(true), [])  
-  const setFalse = useCallback(() => setValue(false), [])  
-  const toggle = useCallback(() => setValue(x => !x), [])  
-  
-  return { value, setValue, setTrue, setFalse, toggle }  
-}
+export default useBoolean;
 ```
 
 ## Description
@@ -31,19 +21,19 @@ export const useBoolean = (defaultValue?: boolean): UseBooleanOutput => {
 `Boolean` 상태를 위한 간단한 `추상화`입니다.
 
 ## Example
+
 ```ts
 const Component = () => {  
-  const { value, setValue, setTrue, setFalse, toggle } = useBoolean(false)  
+  const [open, toggle] = useToggle()  
   
   return (  
     <>  
       <p>  
-        Value is <code>{value.toString()}</code>  
-        Value is <code>{value.toString()}</code>  
+        Value is <code>{open.toStrig()}</code>  
       </p>  
-      <button onClick={setTrue}>set true</button>  
-      <button onClick={setFalse}>set false</button>  
-      <button onClick={toggle}>toggle</button>  
+      <button onClick={()=>{toggle()}}>toggle</button>  
+      <button onClick={()=>{toggle(true)}}>toggle</button>  
+      <button onClick={()=>{toggle(false)}}>toggle</button>  
     </>  
   )  
 }

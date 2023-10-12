@@ -24,14 +24,16 @@ export default useToggle;
 
 ```ts
 const Component = () => {  
-  const { value, } = useToggle(false)  
+  const [open, toggle] = useToggle()  
   
   return (  
     <>  
       <p>  
-        Value is <code>{value.toString()}</code>  
+        Value is <code>{open.toStrig()}</code>  
       </p>  
-      <button onClick={toggle}>toggle</button>  
+      <button onClick={()=>{toggle()}}>toggle</button>  
+      <button onClick={()=>{toggle(true)}}>toggle</button>  
+      <button onClick={()=>{toggle(false)}}>toggle</button>  
     </>  
   )  
 }
