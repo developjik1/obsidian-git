@@ -9,9 +9,8 @@ import { Reducer, useReducer } from 'react';
   
 const reducer = (state: boolean, nextValue?: boolean) =>typeof nextValue === "boolean" ? nextValue : !state;  
   
-const useBoolean = (initialValue?: boolean): [boolean, (nextValue?: boolean) => void] => {  
-  return useReducer<Reducer<boolean, boolean| undefined>>(reducer, !! initialValue);  
-};  
+const useBoolean = (initialValue?: boolean): [boolean, (nextValue?: boolean) => void] => 
+  useReducer<Reducer<boolean, boolean| undefined>>(reducer, !! initialValue)
   
 export default useBoolean;
 ```
