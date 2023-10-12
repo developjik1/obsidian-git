@@ -25,7 +25,7 @@ export const useIsClient = () => {
 
 ## Example
 ```ts
-export default const Component = () => {  
+const Component = () => {  
   const isClient = useIsClient()  
   
   return <div>{isClient ? 'Client' : 'server'}</div>  

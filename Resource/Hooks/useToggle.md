@@ -29,7 +29,7 @@ export function useToggle( defaultValue?: boolean ): UseToggleOutput {
 ## Example
 
 ```ts
-export default const Component = () => {  
+const Component = () => {  
   const { value, } = useToggle(false)  
   
   return (  
