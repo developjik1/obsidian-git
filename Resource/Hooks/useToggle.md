@@ -5,22 +5,15 @@ sticker: emoji//1fa9d
 ## Hook
 
 ```ts
-import { Dispatch, SetStateAction, useCallback, useState } from 'react' 
-
-interface UseToggleOutput {  
-  value: boolean  
-  setValue: Dispatch<SetStateAction<boolean>>  
-  toggle: () => void  
-}  
+import { Reducer, useReducer } from 'react';  
   
-export function useToggle( defaultValue?: boolean ): UseToggleOutput {  
-  const [value, setValue] = useState(!!defaultValue)  
+const reducer = (state: boolean, nextValue?: boolean) =>typeof nextValue === "boolean" ? nextValue : !state;  
   
-  const toggle = useCallback(() => setValue(x => !x), [])  
+const useToggle = (initialValue?: boolean): [boolean, (nextValue?: boolean) => void] => {  
+  return useReducer<Reducer<boolean, boolean| undefined>>(reducer, !! initialValue);  
+};  
   
-  return { value, setValue, toggle }
-}
-
+export default useToggle;
 ```
 
 ## Description
