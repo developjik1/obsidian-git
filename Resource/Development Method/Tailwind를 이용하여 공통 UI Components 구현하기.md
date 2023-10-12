@@ -1,3 +1,6 @@
+---
+sticker: lucide//creative-commons
+---
 ## 사용할 package
 - tailwind
 - radix-ui

@@ -77,8 +77,7 @@ export type PolymorphicComponentProps<
 };
 ```
 
-
-```tsx
+```ts
 export type BoxProps<T extends React.ElementType> = PolymorphicComponentProps<T>;
 
 type BoxComponent = <T extends React.ElementType = "div">(
@@ -87,17 +86,17 @@ type BoxComponent = <T extends React.ElementType = "div">(
 
 export const Box: BoxComponent = forwardRef(
   <T extends React.ElementType = "div">(
-    { as, ...props }: BoxP<T>,
+    { as, ...props }: BoxProps<T>,
     ref: PolymorphicRef<T>["ref"]
   ) => {
-    const Element = as || "span";
+    const Element = as || "div";
     // size와 color를 style로 적용
     return <Element ref={ref} {...props} style={{ fontSize: size, color }} />;
   }
 );
 ```
 
-```tsx
+```ts
 type _TextProps = {
   size: number;
   color: string;
