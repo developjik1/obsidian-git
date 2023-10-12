@@ -24,12 +24,10 @@ export const useBoolean = (defaultValue?: boolean): UseBooleanOutput => {
   
   return { value, setValue, setTrue, setFalse, toggle }  
 }
-
 ```
 
 ## Example
 ```ts
-  
 export default const Component = () => {  
   const { value, setValue, setTrue, setFalse, toggle } = useBoolean(false)  
   

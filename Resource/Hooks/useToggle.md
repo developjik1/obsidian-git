@@ -20,12 +20,10 @@ export function useToggle( defaultValue?: boolean ): UseToggleOutput {
   
   return { value, setValue, toggle }
 }
-
 ```
 
 ## Example
 ```ts
-  
 export default const Component = () => {  
   const { value, } = useToggle(false)  
   
