@@ -62,22 +62,39 @@ const App = () => {
 ## Polymorphism Component TypeScript Version
 
 ```tsx
-type ViewProps<T extends React.ElementType> = {
+type AsProp<T extends React.ElementType> = {
+  as?: T;
+};
+
+export type PolymorphicRef<T extends React.ElementType> =
+  React.ComponentPropsWithRef<T>["ref"];
+
+
+export type PolymorphicComponentProps<
+  T extends React.ElementType,
+  Props = {}
+> = AsProp<T> & React.ComponentPropsWithoutRef<T> & Props & {
+  ref?: PolymorphicRef<T>;
+};
+
+
+type BoxProps<T extends React.ElementType> = {
   as?: T;
 } & React.ComponentPropsWithoutRef<T>;
 
-type ViewComponent = <C extends React.ElementType = "div">(
-  props: ViewProps<C> & {
-    ref?: React.ComponentPropsWithRef<C>["ref"];
+type BoxComponent = <T extends React.ElementType = "div">(
+  props: BoxProps<T> & {
+    ref?: React.ComponentPropsWithRef<T>["ref"];
   }
 ) => React.ReactElement | null;
 
-export const View: ViewComponent = forwardRef(
+export const View: BoxComponent = forwardRef(
   <T extends React.ElementType = "div">(
     { as, ...props }: ViewProps<T>,
     ref: React.ComponentPropsWithRef<T>["ref"]
   ) => {
     const Element = as || "div";
+    
     return <Element ref={ref} {...props} />;
   }
 );
