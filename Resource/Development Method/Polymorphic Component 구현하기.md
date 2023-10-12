@@ -19,3 +19,44 @@ sticker: lucide//box
 - Chakra UI [Box](https://chakra-ui.com/docs/components/box) Component
 
 ## Polymorphism Component Javascript Version
+
+```jsx
+export const Box = forwardRef(({ as, ...props }, ref) => {
+  const Element = as || "div";
+  
+  return <Element ref={ref} {...props} />;
+});
+```
+
+```jsx
+/**
+ * Button.jsx
+ */
+import Box from './Box';
+
+export const Button = ({ as, ...props }) => {
+  return (
+    // 위에서 만들어둔 View 컴포넌트를 이용했다.
+    <Box as={as || 'button'}
+      style={{ backgroundColor: 'black', color: 'white' }} 
+      {...props} 
+    />
+  );
+}
+
+/**
+ * App.jsx
+ */
+import { Button } from './Button';
+
+const App = () => {
+  return (
+    <div>
+      // 마치 a 태그처럼 사용할 수 있다.
+      <Button as="a" href="https://kciter.so">Click Me!</Button>
+    </div>
+  );
+}
+```
+
+## Polymorphism Component TypeScript Version
