@@ -26,6 +26,10 @@ export const useBoolean = (defaultValue?: boolean): UseBooleanOutput => {
 }
 ```
 
+## Description
+
+`Boolean` 상태를 위한 간단한 `추상화`입니다.
+
 ## Example
 ```ts
 export default const Component = () => {  

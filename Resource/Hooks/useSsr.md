@@ -5,16 +5,16 @@ sticker: emoji//1f49b
 ## Hook
 
 ```ts
-import { useEffect, useState } from 'react'  
+export const useSsr = () => {  
+  const isDOM =  
+    typeof window !== 'undefined' &&  
+    window.document &&  
+    window.document.documentElement  
   
-export const useIsClient = () => {  
-  const [isClient, setClient] = useState(false)  
-  
-  useEffect(() => {  
-    setClient(true)  
-  }, [])  
-  
-  return isClient  
+  return {  
+    isBrowser: isDOM,  
+    isServer: !isDOM,  
+  }  
 }
 ```
 

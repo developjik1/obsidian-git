@@ -22,7 +22,12 @@ export function useToggle( defaultValue?: boolean ): UseToggleOutput {
 }
 ```
 
+## Description
+
+`Boolean` 상태를 위한 간단한 `추상화`입니다.
+
 ## Example
+
 ```ts
 export default const Component = () => {  
   const { value, } = useToggle(false)  
