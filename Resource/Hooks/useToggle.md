@@ -1,6 +1,6 @@
 ---
 tags: hook
-sticker: emoji//1f49b
+sticker: emoji//1fa9d
 ---
 ## Hook
 
@@ -21,16 +21,6 @@ export function useToggle( defaultValue?: boolean ): UseToggleOutput {
   return { value, setValue, toggle }
 }
 
-import { Reducer, useReducer } from 'react';
-
-const toggleReducer = (state: boolean, nextValue?: any) =>
-  typeof nextValue === 'boolean' ? nextValue : !state;
-
-const useToggle = (initialValue: boolean): [boolean, (nextValue?: any) => void] => {
-  return useReducer<Reducer<boolean, any>>(toggleReducer, initialValue);
-};
-
-export default useToggle;
 ```
 
 ## Description
