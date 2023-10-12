@@ -1,5 +1,7 @@
 ---
 sticker: lucide//box
+tags:
+  - component
 ---
 ## Polymorphism 란 ?
 **Polymorphism**은 한국어로 `다형성`이라고 부르는데, `여러 개의 형태를 가진다`라는 의미이다. 
@@ -21,6 +23,10 @@ sticker: lucide//box
 ## Polymorphism Component Javascript Version
 
 ```jsx
+/*
+Polymorphism Component Box
+*/
+
 export const Box = forwardRef(({ as, ...props }, ref) => {
   const Element = as || "div";
   
@@ -62,6 +68,7 @@ const App = () => {
 ## Polymorphism Component TypeScript Version
 
 ```tsx
+
 type AsProp<T extends React.ElementType> = {
   as?: T;
 };
@@ -78,6 +85,10 @@ export type PolymorphicComponentProps<
 ```
 
 ```ts
+/*
+Polymorphism Component Box
+*/
+
 export type BoxProps<T extends React.ElementType> = PolymorphicComponentProps<T>;
 
 type BoxComponent = <T extends React.ElementType = "div">(
@@ -97,6 +108,10 @@ export const Box: BoxComponent = forwardRef(
 ```
 
 ```ts
+/*
+Polymorphism Component Text
+*/
+
 type _TextProps = {
   size: number;
   color: string;
