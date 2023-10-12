@@ -33,23 +33,6 @@ const useToggle = (initialValue: boolean): [boolean, (nextValue?: any) => void] 
 export default useToggle;
 ```
 
-```ts
-import { Reducer, useReducer } from 'react';
-
-const toggleReducer = (state: boolean, nextValue?: any) => typeof nextValue === 'boolean' ? nextValue : !state;
-
-  
-
-const useToggle = (initialValue: boolean): [boolean, (nextValue?: any) => void] => {
-
-return useReducer<Reducer<boolean, any>>(toggleReducer, initialValue);
-
-};
-
-  
-
-export default useToggle;
-```
 ## Description
 
 `Boolean` 상태를 위한 간단한 `추상화`입니다.
