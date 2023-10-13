@@ -1,3 +1,6 @@
+---
+sticker: emoji//1f4e6
+---
 ## class-variance-authority? 
 A tiny (234B) utility for constructing `className` strings conditionally.  
 Also serves as a [faster](https://github.com/lukeed/clsx/blob/HEAD/bench) & smaller drop-in replacement for the `classnames` module.

@@ -1,3 +1,6 @@
+---
+sticker: emoji//1f4e6
+---
 
 ## tailwind-merge?
 Utility function to efficiently merge [Tailwind CSS](https://tailwindcss.com/) classes in JS without style conflicts.
