@@ -1,6 +1,6 @@
 ---
 tags: react
-sticker: emoji//1fa9d
+sticker: emoji//1f5fd
 ---
 ## Description
 
