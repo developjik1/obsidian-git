@@ -1,5 +1,5 @@
 ---
-sticker: lucide//creative-commons
+sticker: emoji//1f4ee
 ---
 ## 사용할 package
 - tailwind

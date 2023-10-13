@@ -1,5 +1,4 @@
 ---
-sticker: lucide//box
 tags:
   - component
 ---

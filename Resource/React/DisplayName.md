@@ -1,5 +1,5 @@
 ---
-sticker: lucide//monitor
+sticker: emoji//1f640
 tags:
   - react
 ---
