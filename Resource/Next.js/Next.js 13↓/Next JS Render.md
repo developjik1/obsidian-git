@@ -1,3 +1,6 @@
+---
+sticker: emoji//1f53d
+---
   
 ## Next.js 기본 렌더링 방식
 
