@@ -1,9 +1,14 @@
----
-sticker: emoji//1f4e6
----
 ## class-variance-authority? 
-A tiny (234B) utility for constructing `className` strings conditionally.  
-Also serves as a [faster](https://github.com/lukeed/clsx/blob/HEAD/bench) & smaller drop-in replacement for the `classnames` module.
+
+CSS-in-TS libraries such as [Stitches(opens in a new tab)](https://stitches.dev/docs/variants) and [Vanilla Extract(opens in a new tab)](https://vanilla-extract.style/documentation/api/style-variants/) are **fantastic** options for building type-safe UI components; taking away all the worries of class names and StyleSheet composition.
+
+…but CSS-in-TS (or CSS-in-JS) isn't for everyone.
+
+You may need full control over your StyleSheet output. Your job might require you to use a framework such as Tailwind CSS. You might just prefer writing your own CSS.
+
+Creating variants with the "traditional" CSS approach can become an arduous task; manually matching classes to props and manually adding types.
+
+`cva` aims to take those pain points away, allowing you to focus on the more fun aspects of UI development.
 
 ## class-variance-authority install
 ```shell
