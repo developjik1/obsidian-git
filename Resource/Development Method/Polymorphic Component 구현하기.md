@@ -101,7 +101,7 @@ export const Box: BoxComponent = forwardRef(
   ) => {
     const Element = as || "div";
     // size와 color를 style로 적용
-    return <Element ref={ref} {...props} style={{ fontSize: size, color }} />;
+    return <Element ref={ref} {...props}  />;
   }
 );
 ```
