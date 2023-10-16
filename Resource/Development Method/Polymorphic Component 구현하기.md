@@ -100,8 +100,8 @@ export const Box: BoxComponent = forwardRef(
     ref: PolymorphicRef<T>["ref"]
   ) => {
     const Element = as || "div";
-    // size와 color를 style로 적용
-    return <Element ref={ref} {...props}  />;
+
+    return <Element ref={ref} {...props} />;
   }
 );
 ```
