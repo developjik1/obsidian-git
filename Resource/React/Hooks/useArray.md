@@ -4,7 +4,7 @@ sticker: emoji//1fa9d
 ```ts
 import { useState } from "react"  
   
-const useArray = (defaultValue:T) => {  
+const useArray<T> = (defaultValue:T) => {  
   const [array, setArray] = useState<T>(defaultValue || [])  
   
   const push = (element) => {  
@@ -15,7 +15,7 @@ const useArray = (defaultValue:T) => {
     setArray(a => a.filter(callback))  
   }  
   
-  function update(index, newElement) {  
+  const update = (index, newElement) => {  
     setArray(a => [  
       ...a.slice(0, index),  
       newElement,  
@@ -23,11 +23,11 @@ const useArray = (defaultValue:T) => {
     ])  
   }  
   
-  function remove(index) {  
+  const remove = (index) => {  
     setArray(a => [...a.slice(0, index), ...a.slice(index + 1, a.length)])  
   }  
   
-  function clear() {  
+  const clear = () => {  
     setArray([])  
   }  
   
