@@ -27,3 +27,25 @@ git commit -m "커밋 메시지"
 git remote add origin "부모 저장소(repository) 주소"
 git branch -M main
 git push -u origin main
+```
+
+### 3. git subtree를 이용해 부모 저장소(repository)에 자식 저장소(repository)를 추가하기
+
+
+```shell
+git subtree add --prefix=폴더이름 자식저장소(repository)주소 branch이름
+```
+
+- 폴더 이름은 github 부모 저장소(repository)에 저장될 폴더 이름이다.
+
+ex) `git subtree add --prefix=project1 http://...git main`
+
+### 4. git commit & push
+
+```shell
+git commit -m "커밋메시지"
+
+git push origin main
+```
+
+### 부모 저장소(repository)에  지정한 폴더
