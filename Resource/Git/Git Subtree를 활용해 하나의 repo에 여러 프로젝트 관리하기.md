@@ -61,7 +61,7 @@ git push origin main
 ```shell
 git clone 부모 리포지토리 주소
 cd 부모 리포지토리 이름
-git subtree add --prefix-폴더이름 자식리포지토리주소 branch이름
+git subtree add --prefix=폴더이름 자식리포지토리주소 branch이름
 git commit -m "커밋 메시지"
 git push origin main
 ```
