@@ -38,7 +38,7 @@ git subtree add --prefix=폴더이름 자식저장소(repository)주소 branch�
 
 - 폴더 이름은 github 부모 저장소(repository)에 저장될 폴더 이름이다.
 
-ex) `git subtree add --prefix=project1 http://...git main`
+ex) `git subtree add --prefix=chlid1 http://...git main`
 
 ### 4. git commit & push
 
@@ -48,4 +48,20 @@ git commit -m "커밋메시지"
 git push origin main
 ```
 
-### 부모 저장소(repository)에  지정한 폴더
+### 5. 부모 저장소(repository)에  지정한 폴더이름으로  자식 저장소(repository) 파일 및 폴더들 추가되었는지 확인하기
+
+![[Pasted image 20231017111306.png]]
+
+### (6).  자식 저장소(repository) 삭제하기
+
+자식 저장소(repository)를 삭제해도 부모 저장소(repository)에 올라간 파일 및 폴더들은 삭제 되지 않는다
+
+###  이후 부모 저장소(repository)에  자식 저장소(repository) 파일 및 폴더들 추가하기
+
+```shell
+git clone 부모 리포지토리 주소
+cd 부모 리포지토리 이름
+git subtree add --prefix-폴더이름 자식리포지토리주소 branch이름
+git commit -m "커밋 메시지"
+git push origin main
+```
