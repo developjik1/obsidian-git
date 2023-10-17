@@ -13,13 +13,16 @@ tags:
 ### submodule ?
 
 git 저장소 안에 다른 저장소가 들어가 있는 개념이다.
-상위 저장소에서 서브 모듈을 SHA 값, 하나의 바이너리처럼 취급하기 때문에 병합에 있어 복잡하다.  
-저장소가 병합되는 것이 아닌 최신 커밋의 내용으로 교체된다. 
-직접 서브모듈을 업데이트한 뒤 병합 후 푸쉬해야한다.  
-  
-.gitmodules를 통해 메인 프로젝트에서 sub 프로젝트를 관리할 수 있다. .gitmodules에는 submodule로 사용할 프로젝트의 저장소 주소와 해당 프로젝트가 위치할 폴더명 등이 적혀있다. 
 
-아래의 명령어는 메인 프로젝트에 서브모듈 정보를 가지고 있는 경우 submodule을 등록하고 업데이트 할 수 있다.
+상위 저장소에서 submodule을 SHA 값, 하나의 바이너리처럼 취급하기 때문에 병합에 있어 복잡하다.  
+저장소가 병합되는 것이 아닌 최신 커밋의 내용으로 교체된다. 또한, 직접 submodule을 업데이트한 뒤 병합 후 푸쉬해야한다.  
+  
+.gitmodules를 통해 메인 프로젝트에서 sub 프로젝트를 관리할 수 있다.
+.gitmodules에는 submodule로 사용할 프로젝트의 저장소 주소와 해당 프로젝트가 위치할 폴더명 등이 적혀있다. 
+
+#### submodule 명령어
+
+아래 명령어는 메인 프로젝트에 서브모듈 정보를 가지고 있는 경우 submodule을 등록 및 업데이트 할 수 있다.
 ```
 # .gitmodules 정보를 기반으로 로컬 환경설정파일이 설정된다.
 # .gitmodules 정보를 .git/config에 등록한다.
@@ -43,7 +46,7 @@ git submodule update --remote --merge
 ```
 
 > **※ Detached HEAD  
-> **  
+> 
 > 보통 브랜치는 특정 커밋의 revision number를 가리키고 HEAD는 이 브랜치를 가리킨다.  
 > HEAD -> branch -> commit (revision number) 순으로 commit을 가리키는 상태를 attached HEAD 상태라고 한다. 반면에 HEAD가 브랜치를 통해 간접적으로 commit을 가리키는 것이 아닌 직접적으로 commit을 가리키는 것을 Detached HEAD 라고 한다.  
 >   
@@ -86,18 +89,12 @@ git push --recurse-submodules=on-demand
 `subtree`는 여러 저장소를 통합하는 개념이다. 
 
 상위 저장소에 파일을 직접 추가하고 추적\한다. 
-
 서브트리의 파일 및 변경사항도 상위 저장소에 기록된다.  
 서브트리의 원격 저장소와 서브트리를 추가한 저장소의 소스가 달라도 '_subtree merge' 를 활용하여 양쪽의 변경사항을 모두 반영할 수 있다.  
-  
-#### subtree 장점
-메인 프로젝트에서 서브 프로젝트를 바로 수정하고 push 할 수 있다.
 
-#### subtree 단점
-자유도가 높기 때문에 메인 프로젝트에서 서브 프로젝트들에 영향을 끼칠 수 있다는 것은 단점이자 개발 시 주의해야할 점이다.  
-  
-서브트리를 추가하고 이를 조작하는 명령어는 아래에 설명한다
-```
+#### subtree 명령어
+
+```shell
 # 메인 프로젝트 git clone
 git clone {git addr}
 
@@ -113,14 +110,22 @@ git subtree add --prefix={local directory} {repo} {branch}
 
 # 서버트리를 pull, push 할 때는 prefix 옵션을 주어서 해당 서브트리가 위치한 디렉토리 정보와
 # 저장소, 브랜치를 주어서 pull, push를 수행하도록 한다.
+
 # pull
 git subtree pull --prefix={local directory} {repo} {branch}
 
 # push
 git subtree push --prefix={local directory} {repo} {branch}
 ```
+  
+#### subtree 장점
+메인 프로젝트에서 서브 프로젝트를 바로 수정하고 push 할 수 있다.
 
-## 3. 차이점
+#### subtree 단점
+자유도가 높기 때문에 메인 프로젝트에서 서브 프로젝트들에 영향을 끼칠 수 있다는 것은 단점이자 개발 시 주의해야할 점이다.  
+  
+
+### 3. 차이점
 
 ### submodule
 
