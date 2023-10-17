@@ -12,7 +12,9 @@ tags:
 
 ### submodule ?
 
-git 저장소 안에 다른 저장소가 들어가 있는 개념이다.
+![[Pasted image 20231017114431.png]]
+
+Git 저장소 안에 다른 저장소가 들어가 있는 개념이다.
 
 상위 저장소에서 submodule을 SHA 값, 하나의 바이너리처럼 취급하기 때문에 병합에 있어 복잡하다.  
 저장소가 병합되는 것이 아닌 최신 커밋의 내용으로 교체된다. 또한, 직접 submodule을 업데이트한 뒤 병합 후 푸쉬해야한다.  
@@ -30,7 +32,6 @@ git 저장소 안에 다른 저장소가 들어가 있는 개념이다.
 git submodule add -b {branch} ../{git repo}.git
 ```
 
-  
 위의 명령어를 실행하면 해당 저장소, 브랜치의 데이터가 서브 모듈로 추가된다. '.gitmodule' 파일을 확인하면 이에 대한 정보를 볼 수 있다.  
 새롭게 서브모듈을 추가하고 나면 해당 정보를 유지하기 위해 메인 프로젝트를 커밋해야한다.  
 
@@ -58,14 +59,7 @@ git submodule foreach git checkout master
 git submodule update --remote --merge
 ```
 
-> **※ Detached HEAD  
-> 
-> 보통 브랜치는 특정 커밋의 revision number를 가리키고 HEAD는 이 브랜치를 가리킨다.  
-> HEAD -> branch -> commit (revision number) 순으로 commit을 가리키는 상태를 attached HEAD 상태라고 한다. 반면에 HEAD가 브랜치를 통해 간접적으로 commit을 가리키는 것이 아닌 직접적으로 commit을 가리키는 것을 Detached HEAD 라고 한다.  
->   
-> git은 브랜치를 통해 커밋들을 관리하기 때문에 Detached HEAD 상태에서는 커밋의 관리가 불가능하다. 그렇기 때문에 git에서는 브랜치를 새로 생성하거나 기존 브랜치를 checkout 하는 식으로 브랜치를 연결하여 커밋을 관리하는 것을 추천한다.
-
-  
+- 메인 프로젝트에 서브 프로젝트를 수정 명령어
 메인 프로젝트에서 서브 프로젝트를 수정하기 위해서는 먼저 서브 프로젝트의 브랜치 상태를 확인해야 한다. submodule update를 통해 서브 프로젝트를 가져온 경우에는 detached HEAD 상태로 어떤 브랜치에도 속하지 않은 상태가 되기 때문에 git checkout master 등을 수행하여 원하는 브랜치로 checkout 해줘야 한다.  
 또한 수정 이후 커밋을 하는 순서도 유의해야 한다. 서브 프로젝트의 수정이 있는 경우, 서브 프로젝트를 먼저 커밋한 후에 메인 프로젝트를 커밋해야 한다. 만약 메인 프로젝트를 먼저 커밋하는 경우, 서브 프로젝트의 최신 커밋을 참조하지 않게 되기 때문이다.  
   
@@ -84,7 +78,17 @@ git push --recurse-submodules=check
 # submodule을 모두 push 하고 성공하면 메인 프로젝트를 push 
 git push --recurse-submodules=on-demand
 ```
+
+> ※ Detached HEAD  
+> 
+> 보통 브랜치는 특정 커밋의 revision number를 가리키고 HEAD는 이 브랜치를 가리킨다.  
+> HEAD -> branch -> commit (revision number) 순으로 commit을 가리키는 상태를 attached HEAD 상태라고 한다. 반면에 HEAD가 브랜치를 통해 간접적으로 commit을 가리키는 것이 아닌 직접적으로 commit을 가리키는 것을 Detached HEAD 라고 한다.  
+>   
+> git은 브랜치를 통해 커밋들을 관리하기 때문에 Detached HEAD 상태에서는 커밋의 관리가 불가능하다. 그렇기 때문에 git에서는 브랜치를 새로 생성하거나 기존 브랜치를 checkout 하는 식으로 브랜치를 연결하여 커밋을 관리하는 것을 추천한다.
+
 ###  subtree ?
+
+![[Pasted image 20231017114501.png]]
 
 `subtree`는 여러 저장소를 통합하는 개념이다. 
 
