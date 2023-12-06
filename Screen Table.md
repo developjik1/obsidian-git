@@ -12,7 +12,7 @@ import { ColumnType, RowSelectMethod } from 'antd/es/table/interface';
 
   
 
-import { Flex } from '../layout';
+import { Box, Flex } from '../layout';
 
 import { B3 } from '../typography';
 
@@ -24,7 +24,7 @@ import { Render } from './column-render';
 
   
 
-import { useQueryParams, useTable, useWindowSize, useContentWidthHeight } from '../../hooks';
+import { useContentWidthHeight, useQueryParams, useTable, useWindowSize } from '../../hooks';
 
   
 
@@ -48,7 +48,7 @@ export type UnitColumnsType<T> = ColumnsType<T>;
 
   
 
-export type UnitTableProps<T> = TableProps<T> & {
+export type UnitScreenTableProps<T> = TableProps<T> & {
 
 onRowClick?: (record: T, index?: number) => void;
 
@@ -76,7 +76,7 @@ gap?: number;
 
   
 
-export const UnitTable = <T extends object>({
+export const UnitScreenTable = <T extends object>({
 
 columns = [],
 
@@ -104,9 +104,17 @@ gap = 0,
 
 ...props
 
-}: UnitTableProps<T>) => {
+}: UnitScreenTableProps<T>) => {
+
+const wrapperRef = useRef<HTMLDivElement>(null);
 
 const tableRef: Parameters<typeof Table>[0]['ref'] = useRef(null);
+
+  
+
+const { screenTableHeight } = useContentWidthHeight();
+
+const wrapperHeight = useMemo(() => screenTableHeight - gap, [screenTableHeight, gap]);
 
   
 
@@ -158,21 +166,51 @@ const rowClassName: TableProps<T>['rowClassName'] = useCallback(
 
 // table props scroll
 
-const [x, setX] = useState(0);
-
-const [y, _setY] = useState(0);
+const [y, setY] = useState(0);
 
 const { width: windowWidth } = useWindowSize();
 
-const { minContentWidth, contentWidth } = useContentWidthHeight();
+const [x, setX] = useState(0);
 
-  
+const { minContentWidth, contentWidth } = useContentWidthHeight();
 
 useEffect(() => {
 
 setX(windowWidth < 1600 ? minContentWidth : contentWidth);
 
 }, [windowWidth, minContentWidth, contentWidth]);
+
+  
+
+// y set useEffect
+
+useEffect(() => {
+
+const headHeight = wrapperRef?.current ? wrapperRef?.current?.querySelector('.ant-table-thead')?.clientHeight || 0 : 0;
+
+  
+
+const paginationHeight =
+
+showPagination && wrapperRef?.current && wrapperRef?.current?.querySelector('.ant-pagination')
+
+? wrapperRef?.current?.querySelector('.ant-pagination')?.clientHeight || 0
+
+: 0;
+
+  
+
+setY(wrapperHeight - headHeight - paginationHeight);
+
+}, [
+
+wrapperHeight,
+
+wrapperRef?.current?.querySelector('.ant-table-thead')?.clientHeight,
+
+wrapperRef?.current?.querySelector('.ant-pagination')?.clientHeight,
+
+]);
 
   
 
@@ -658,6 +696,8 @@ setClickRow(record);
 
 return (
 
+<Box ref={wrapperRef} height={wrapperHeight} width={props?.scroll?.x || x - 4 || '100%'}>
+
 <Table<T>
 
 ref={tableRef}
@@ -677,6 +717,24 @@ virtual={virtual}
 rowSelection={rowSelection}
 
 pagination={pagintation}
+
+// components={{
+
+// body: {
+
+// cell: (props: any) => ({
+
+// style: {
+
+// width: props.column.width || '100%', // 각 열의 너비 설정
+
+// },
+
+// }),
+
+// },
+
+// }}
 
 locale={{
 
@@ -715,6 +773,8 @@ showSorterTooltip={false}
 expandable={expandable}
 
 />
+
+</Box>
 
 );
 
